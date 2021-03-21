@@ -1,0 +1,164 @@
+/*-----find the sum of all distinct elements from the set------
+---------using Comparing elements to each other ------------*/
+
+ALGORITHM sum_distinct_elements
+VAR
+    set1,set2 : ARRAY_OF INTEGER[length];
+    i,j:INTEGER
+    sum,sum1,sum2:INTEGER;
+        BEGIN
+        read(set1);
+        read(set2);
+        //compare each set1's element to set2's elements
+    FOR i FROM 0 TO set1.length-1 STEP 1 DO
+    FOR j FROM 0 TO set2.length-1  STEP step  DO
+    IF (set1[i]<>set2[j]) THEN
+    sum1 = sum + set1[i]
+    END_IF
+    END_FOR
+    END_FOR
+        //compare each set2's element to set1's elements
+
+    FOR i FROM 0 TO length.set2-1 STEP 1 DO
+    FOR j FROM 0 TO length.set1-1  STEP step  DO
+    IF (set2[i]<>set1[j]) THEN
+    sum2 = sum + set2[i]
+    END_IF
+    END_FOR
+    END_FOR
+    sum:=sum1+sum2;
+    write("The sum of all distinct elements is," sum)
+END
+
+/*-----find the sum of all distinct elements from the set-----
+------------------using HASH_TABLE------------------------*/
+
+ALGORITHM algorithm_name
+    VAR
+    set1: ARRAY_OF INTEGER[length];
+    set2: ARRAY_OF INTEGER[length];
+    htab: HASH_TABLE<INTEGER,INTEGER>
+    i, count, sum: INTEGER;
+BEGIN
+// Insert  elements from set1 in HASH_TABLE
+  FOR i FROM 0 TO set1.length-1 STEP 1 DO
+      element = set1[i]
+// Get the count of each element(set1) in HASH_TABLE      
+    IF (htab.lookup(set1[i]=true) THEN
+       count:= htab.get(set1[i])
+       htab.insert(element, count+1);
+    ELSE 
+    htab.insert(elelment,1);    
+    END_IF
+  END_FOR
+
+// Insert  elements from set2 in HASH_TABLE
+        FOR i FROM 0 TO set2.length-1 STEP 1 DO
+        element = set2[i];
+// Get the count of each element(set1) in HASH_TABLE      
+        IF (htab.get(set2[i]=true) THEN
+            htab.insert(elemnt,count+1);
+        ELSE
+            htab.insert(element,1);
+        END_IF
+    END_FOR
+//get sum of distinct elements
+        int sum = 0;
+        Set<Integer> set = htab.keySet(i);
+        Iterator<Integer> iterator = set.iterator();
+        while (iterator.hasNext()){
+            int key = iterator.next();
+            if(map.get(key)==1)
+                sum += key;
+        }
+// Get sum of all distinct elements
+
+sum := 0
+FOR i FROM 0 TO htab.length-1 STEP 1 DO
+    IF (htab.get(element(i)=1) THEN
+        sum = sum + element(i)
+    END_IF
+END_FOR
+
+  write("The sum of all distinct elements is," sum)
+
+END
+
+/*-----------------------------------------------------------*/
+
+/*-----Find the sum of all similar elements which in either of the two sets ------
+---------using Comparing elements to each other ------------*/
+
+ALGORITHM sum_distinct_elements
+VAR
+    set1,set2 : ARRAY_OF INTEGER[length];
+    i,j:INTEGER
+    sum,sum1,sum2:INTEGER;
+        BEGIN
+        read(set1);
+        read(set2);
+        //compare each set1's element to set2's elements
+    FOR i FROM 0 TO set1.length-1 STEP 1 DO
+    FOR j FROM 0 TO set2.length-1  STEP step  DO
+    IF (set1[i]=set2[j]) THEN
+    sum1 = sum + set1[i]
+    END_IF
+    END_FOR
+    END_FOR
+        //compare each set2's element to set1's elements
+
+    FOR i FROM 0 TO length.set2-1 STEP 1 DO
+    FOR j FROM 0 TO length.set1-1  STEP step  DO
+    IF (set2[i]=set1[j]) THEN
+    sum2 = sum + set2[i]
+    END_IF
+    END_FOR
+    END_FOR
+    sum:=sum1+sum2;
+    write("The sum of all similar elements is," sum)
+END
+
+/*-----Find the sum of all similar elements which in either of the two sets ------
+       ------------------using HASH_TABLE------------------------*/
+
+ALGORITHM algorithm_name
+    VAR
+    set1: ARRAY_OF INTEGER[length];
+    set2: ARRAY_OF INTEGER[length];
+    htab: HASH_TABLE<INTEGER,INTEGER>
+    i, count, sum: INTEGER;
+BEGIN
+// Insert  elements from set1 in HASH_TABLE
+  FOR i FROM 0 TO set1.length-1 STEP 1 DO
+      element = set1[i]
+// Get the count of each element(set1) in HASH_TABLE      
+    IF (htab.lookup(set1[i]=true) THEN
+       count:= htab.get(set1[i])
+       htab.insert(element, count+1);
+    ELSE 
+    htab.insert(elelment,1);    
+    END_IF
+  END_FOR
+
+// Insert  elements from set2 in HASH_TABLE
+        FOR i FROM 0 TO set2.length-1 STEP 1 DO
+        element = set2[i];
+// Get the count of each element(set1) in HASH_TABLE      
+        IF (htab.get(set2[i]=true) THEN
+            htab.insert(elemnt,count+1);
+        ELSE
+            htab.insert(element,1);
+        END_IF
+    END_FOR
+// Get sum of all similar elements
+
+sum := 0
+FOR i FROM 0 TO htab.length-1 STEP 1 DO
+    IF (htab.get(element(i)=2) THEN
+        sum = sum + element(i)
+    END_IF
+END_FOR
+
+  write("The sum of all similar elements is," sum)
+
+END
